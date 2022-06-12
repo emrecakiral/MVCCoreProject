@@ -10,6 +10,7 @@ namespace MVCCoreProject.Models.MappingProfile
         {
             CreateMap<Category, CategoryViewModel>();
             CreateMap<Products, ProductsViewModel>();
+            CreateMap<Region, RegionViewModel>();
         }
     }
 }

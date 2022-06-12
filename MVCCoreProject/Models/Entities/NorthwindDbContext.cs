@@ -12,12 +12,14 @@ namespace MVCCoreProject.Models.Entities
 
         public DbSet<Category> Category { get; set; }
         public DbSet<Products> Products { get; set; }
-     //   public DbSet<Customer> Customer { get; set; }
+        public DbSet<Region> Region { get; set; }
+        //   public DbSet<Customer> Customer { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
+            modelBuilder.ApplyConfiguration(new RegionConfiguration());
         }
      //   public DbSet<Customer> Customer { get; set; }
 

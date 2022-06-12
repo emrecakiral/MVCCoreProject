@@ -9,12 +9,13 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<NorthwindDbContext>(options =>
 {
-    options.UseSqlServer(@"Server=DESKTOP-D6TMB1B;Database=Northwind;uid=sa;pwd=123");
+    options.UseSqlServer(@"Server=BUMIT;Database=CodeFirst1;uid=sa;pwd=rw6cdgvvgb");
 });
 
 
 builder.Services.AddTransient<CategoryRepository>();
 builder.Services.AddTransient<ProductsRepository>();
+builder.Services.AddTransient<RegionRepository>();
 
 builder.Services.AddAutoMapper(typeof(Program)); // inject ediyoruz..
 
