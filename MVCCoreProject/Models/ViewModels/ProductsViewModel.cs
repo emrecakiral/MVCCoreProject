@@ -16,34 +16,33 @@ namespace MVCCoreProject.Models.ViewModels
 
 
         [Display(Name ="Tedarikçi ID")]
-        public int SupplierID { get; set; }
+        public int? SupplierID { get; set; }
 
 
         [Display(Name ="Kategori ID")]
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
 
         [Display(Name ="Birim Miktarı")]
         [StringLength(20,ErrorMessage ="En fazla 20 karakter girilebilir")]
-        public string QuantityPerUnit { get; set; }
+        public string? QuantityPerUnit { get; set; }
 
         
         [Display(Name ="Birim Fiyatı")]
-        public decimal UnitPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
 
 
         [Display(Name ="Stok")]
-        public Int16 UnitsInStock { get; set; }
+        public Int16? UnitsInStock { get; set; }
 
         [Display(Name ="Sipariş")]
-        public Int16 UnitsOnOrder { get; set; }
+        public Int16? UnitsOnOrder { get; set; }
 
 
         [Display(Name ="Sipariş Sıklığı")]
-        public Int16 ReorderLevel { get; set; }
+        public Int16? ReorderLevel { get; set; }
 
 
         [Display(Name ="Satışa Kapalı")]
-        [Required(ErrorMessage ="Bu alan boş bırakılamaz")]
         public bool Discontinued { get; set; }
     }
 }

@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<NorthwindDbContext>(options =>
 {
-    options.UseSqlServer(@"Server=BUMIT;Database=CodeFirst1;uid=sa;pwd=rw6cdgvvgb");
+    options.UseSqlServer(@"Server=DESKTOP-D6TMB1B;Database=Northwind;uid=sa;pwd=123");
 });
 
 
