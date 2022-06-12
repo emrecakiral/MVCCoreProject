@@ -51,7 +51,16 @@ namespace MVCCoreProject.Models.Repository
 
         public int Update(Products item)
         {
-            throw new NotImplementedException();
+            dbContext.Products.Update(item);
+            try
+            {
+                dbContext.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }

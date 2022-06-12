@@ -61,7 +61,6 @@ namespace MVCCoreProject.Controllers
         {
             try
             {
-                model = repository.Get(id);
                 repository.Update(model);
                 return RedirectToAction(nameof(Index));
             }

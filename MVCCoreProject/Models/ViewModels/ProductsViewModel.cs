@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCCoreProject.Models.ViewModels
 {
@@ -22,17 +23,20 @@ namespace MVCCoreProject.Models.ViewModels
         [Display(Name ="Kategori ID")]
         public int? CategoryID { get; set; }
 
+
         [Display(Name ="Birim Miktarı")]
         [StringLength(20,ErrorMessage ="En fazla 20 karakter girilebilir")]
         public string? QuantityPerUnit { get; set; }
 
         
         [Display(Name ="Birim Fiyatı")]
+        [DataType(DataType.Currency,ErrorMessage ="Geçerli fiyat girin")]
         public decimal? UnitPrice { get; set; }
 
 
         [Display(Name ="Stok")]
         public Int16? UnitsInStock { get; set; }
+
 
         [Display(Name ="Sipariş")]
         public Int16? UnitsOnOrder { get; set; }

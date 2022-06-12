@@ -21,9 +21,11 @@ namespace MVCCoreProject.Models.Entities
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
             modelBuilder.ApplyConfiguration(new RegionConfiguration());
         }
-     //   public DbSet<Customer> Customer { get; set; }
+        //   public DbSet<Customer> Customer { get; set; }
 
         public DbSet<MVCCoreProject.Models.ViewModels.ProductsViewModel>? ProductsViewModel { get; set; }
+     //   public DbSet<Customer> Customer { get; set; }
+
     }
 
 
