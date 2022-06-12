@@ -9,6 +9,7 @@ namespace MVCCoreProject.Models.MappingProfile
         public MapProfile()
         {
             CreateMap<Category, CategoryViewModel>();
+            CreateMap<Products, ProductsViewModel>();
         }
     }
 }

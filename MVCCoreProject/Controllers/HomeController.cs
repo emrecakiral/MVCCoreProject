@@ -5,7 +5,7 @@ namespace MVCCoreProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly NorthwindDbContext dbContext;
+        NorthwindDbContext dbContext;
         public HomeController(NorthwindDbContext _dbContext)
         {
             dbContext = _dbContext;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MVCCoreProject.Models.EntitiesConfiguration;
+using MVCCoreProject.Models.ViewModels;
 
 namespace MVCCoreProject.Models.Entities
 {
@@ -10,12 +11,17 @@ namespace MVCCoreProject.Models.Entities
         }
 
         public DbSet<Category> Category { get; set; }
+        public DbSet<Products> Products { get; set; }
      //   public DbSet<Customer> Customer { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductsConfiguration());
         }
+     //   public DbSet<Customer> Customer { get; set; }
+
+        public DbSet<MVCCoreProject.Models.ViewModels.ProductsViewModel>? ProductsViewModel { get; set; }
     }
 
 
