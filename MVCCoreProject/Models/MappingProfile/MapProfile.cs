@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.Entities;
-using MVCCoreProject.Models.ViewModels;
 
 namespace MVCCoreProject.Models.MappingProfile
 {

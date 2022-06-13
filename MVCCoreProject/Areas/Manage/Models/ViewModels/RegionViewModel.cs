@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MVCCoreProject.Models.ViewModels
+namespace MVCCoreProject.Areas.Manage.Models.ViewModels
 {
     public class RegionViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.EntitiesConfiguration;
-using MVCCoreProject.Models.ViewModels;
 
 namespace MVCCoreProject.Models.Entities
 {
@@ -24,7 +24,7 @@ namespace MVCCoreProject.Models.Entities
         }
         //   public DbSet<Customer> Customer { get; set; }
 
-        public DbSet<MVCCoreProject.Models.ViewModels.ProductsViewModel>? ProductsViewModel { get; set; }
+        public DbSet<ProductsViewModel>? ProductsViewModel { get; set; }
      //   public DbSet<Customer> Customer { get; set; }
 
     }

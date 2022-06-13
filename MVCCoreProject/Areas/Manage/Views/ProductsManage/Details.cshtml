@@ -1,13 +1,11 @@
-﻿@model MVCCoreProject.Models.ViewModels.ProductsViewModel
-
+﻿@model ProductsViewModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
 }
 
-<h1>Ürün Sil</h1>
+<h1>Details</h1>
 
-<h3>Bu ürünü silmek istiyor musunuz?</h3>
 <div>
     <hr />
     <dl class="row">
@@ -66,10 +64,8 @@
             @Html.DisplayFor(model => model.Discontinued)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ProductID" />
-        <input type="submit" value="Sil" class="btn btn-danger" /> |
-        <a asp-action="Index">Geri Dön</a>
-    </form>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProductID">Düzenle</a> |
+    <a asp-action="Index">Geri Dön</a>
 </div>

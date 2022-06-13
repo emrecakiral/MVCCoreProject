@@ -1,0 +1,28 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+</head>
+<body>
+
+	<!--not area içerisindeki viewlardan dizindeki viewlara link verirken area attributesi boşluk set edilmelidir...-->
+
+
+	<a asp-action="Index" asp-controller="Home" asp-area="">Geri Dön</a>
+
+	<a asp-action="Index" asp-controller="CategoryManage">Category Yönetimi</a>
+	<a asp-action="Index" asp-controller="ProductsManage">Ürün Yönetimi</a>
+	<a asp-action="Index" asp-controller="RegionManage">Bölge Yönetimi</a>
+	<a asp-action="Index" asp-controller="CustomerManage">Müşteri Yönetimi</a>
+	<a>Tedarikçi Yönetimi</a>
+
+
+
+</body>
+</html>

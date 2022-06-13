@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.Entities;
 using MVCCoreProject.Models.Repository;
-using MVCCoreProject.Models.ViewModels;
 
-namespace MVCCoreProject.Controllers
+namespace MVCCoreProject.Areas.Manage.Controllers
 {
-
+    [Area("Manage")]
     public class RegionManageController : Controller
     {
         RegionRepository repository;

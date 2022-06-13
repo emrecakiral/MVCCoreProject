@@ -11,6 +11,7 @@ namespace MVCCoreProject.Controllers
             dbContext = _dbContext;
         }
 
+
         public IActionResult Index()
         {
             var c = dbContext.Category.ToList();

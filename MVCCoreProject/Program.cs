@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<NorthwindDbContext>(options =>
 {
-    options.UseSqlServer(@"Server=DESKTOP-D6TMB1B;Database=Northwind;uid=sa;pwd=123");
+    options.UseSqlServer(@"Server=.\mssqlexpress;Database=Northwind;uid=sa;pwd=123");
 });
 
 builder.Services.AddTransient<CustomerRepository>();
@@ -33,8 +33,19 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints => {
+
+    endpoints.MapControllerRoute(name: "areas",
+        pattern: "{area:exists}/{controller}/{action}"
+    );
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
+
+
 
 app.Run();
