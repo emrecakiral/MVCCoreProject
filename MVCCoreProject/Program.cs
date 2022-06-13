@@ -12,7 +12,7 @@ builder.Services.AddDbContext<NorthwindDbContext>(options =>
     options.UseSqlServer(@"Server=DESKTOP-D6TMB1B;Database=Northwind;uid=sa;pwd=123");
 });
 
-
+builder.Services.AddTransient<CustomerRepository>();
 builder.Services.AddTransient<CategoryRepository>();
 builder.Services.AddTransient<ProductsRepository>();
 builder.Services.AddTransient<RegionRepository>();
