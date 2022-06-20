@@ -1,0 +1,10 @@
+﻿<!--namespace _ViewImports dosyasında tanımlandığı için Category ismine erişebiliyoruz-->
+
+@model List<Category>
+
+<ul>
+	@foreach (var item in Model)
+	{
+		<li><a asp-controller="Product" asp-action="Index" asp-route-categoryid="@item.Id">@item.Name</a></li>
+	}
+</ul>

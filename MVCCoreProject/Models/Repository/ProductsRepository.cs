@@ -1,14 +1,15 @@
 ﻿using MVCCoreProject.Models.Entities;
+using MVCCoreProject.Models.Specification;
 
 namespace MVCCoreProject.Models.Repository
 {
-    public class ProductsRepository : IRepository<Products>
+    public class ProductsRepository : IRepository<Products>, ISpecification<Products>
     {
         NorthwindDbContext dbContext;
 
         public ProductsRepository(NorthwindDbContext _dbContext)
         {
-            dbContext = _dbContext; 
+            dbContext = _dbContext;
         }
 
         public int Add(Products item)
@@ -39,6 +40,11 @@ namespace MVCCoreProject.Models.Repository
             }
         }
 
+        public List<Products> FindByCriter(Func<Products, bool> expression)
+        {
+            return dbContext.Products.Where(expression).ToList();
+        }
+
         public Products Get(int id)
         {
             return dbContext.Products.Find(id);
@@ -62,5 +68,9 @@ namespace MVCCoreProject.Models.Repository
                 return 0;
             }
         }
+
+
+
+        // spesific metodu buraya yazabiliriz. Ancak buraya yazdığımızda o metota başka bir repository'de ihtiyacımız olabilir. Bu yüzden bu tür işlemler için yeni bir interface üzerinden metodu alıp implement edelim..(İlgili yapı Specification folderındadır)
     }
 }
