@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MVCCoreProject.Models.Entities
+﻿namespace MVCCoreProject.Models.Entities
 {
     public class Products
     {
@@ -14,5 +12,6 @@ namespace MVCCoreProject.Models.Entities
         public Int16? UnitsOnOrder { get; set; }
         public Int16? ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

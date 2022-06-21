@@ -1,4 +1,5 @@
-﻿using MVCCoreProject.Models.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MVCCoreProject.Models.Entities;
 using MVCCoreProject.Models.Specification;
 
 namespace MVCCoreProject.Models.Repository
@@ -47,7 +48,7 @@ namespace MVCCoreProject.Models.Repository
 
         public Products Get(int id)
         {
-            return dbContext.Products.Find(id);
+            return dbContext.Products.Include(c => c.Category).FirstOrDefault(c => c.ProductID == id);
         }
 
         public List<Products> GetAll()
