@@ -47,7 +47,13 @@ namespace MVCCoreProject.Controllers
             {
                 ids.Add(productId.ToString());
                 var str = JsonSerializer.Serialize(ids);
-                HttpContext.Response.Cookies.Append("productIds", str);
+
+
+                HttpContext.Response.Cookies.Append("productIds", str, new CookieOptions
+                {
+                    Expires = DateTimeOffset.Now.AddDays(10)
+                });
+
             }
             // [1,2,3,4,5,6,7]
 

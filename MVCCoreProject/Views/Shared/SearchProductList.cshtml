@@ -1,0 +1,23 @@
+﻿@model List<Products>
+
+@{
+	Layout = null;
+}
+<ul class="list-group">
+
+	@foreach (var item in Model)
+	{
+		<li class="list-group-item latest-product__item__text">
+			<a asp-action="Detail" asp-controller="Product" asp-route-productId="@item.ProductID" class="latest-product__item" style="margin-bottom:0px;">
+				<div class="latest-product__item__pic">
+					<img src="~/img/latest-product/lp-1.jpg" style="width: 70px;height: 70px;" alt="">
+				</div>
+				<div class="latest-product__item__text">
+					<h6> @item.ProductName </h6>
+					<span>$ @item.UnitPrice </span>
+				</div>
+			</a>
+		</li>
+	}
+
+</ul>

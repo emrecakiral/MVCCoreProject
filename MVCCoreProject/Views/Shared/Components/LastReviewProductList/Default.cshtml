@@ -1,0 +1,39 @@
+﻿@model List<Products>
+
+
+
+<div class="latest-product__text">
+	<h4>Review Products</h4>
+	<div class="latest-product__slider owl-carousel">
+
+		@{
+			// 1 slideritem divinde 3 adet kayıt olacağı için Model sayısını 3 bölüyoruz...
+			double sliderItemCount = Math.Ceiling(Convert.ToDouble(Model.Count) / Convert.ToDouble(3));
+
+		}
+
+		@for (int i = 0; i < sliderItemCount; i++)
+		{
+			var pageList = Model.Skip(i*3).Take(3).ToList(); // modelin içinden 3 adet kayıt al ve pageList'e at
+
+			<div class="latest-prdouct__slider__item">
+
+				@foreach (var item in pageList)
+				{
+					<a href="#" class="latest-product__item">
+					<div class="latest-product__item__pic">
+						<img src="~/img/latest-product/lp-1.jpg" alt="">
+					</div>
+					<div class="latest-product__item__text">
+						<h6> @item.ProductName </h6>
+						<span>$ @item.UnitPrice </span>
+					</div>
+				</a>
+				}
+
+
+			</div>
+		}
+
+	</div>
+</div>

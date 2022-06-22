@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+#searchBox {
+    width: 316px;
+    margin-left: 170px;
+    position:absolute;
+    height:400px;
+    overflow:hidden;
+    z-index:999;
+}
