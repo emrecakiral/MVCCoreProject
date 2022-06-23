@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVCCoreProject.Models;
 using MVCCoreProject.Models.Entities;
 using MVCCoreProject.Models.Repository;
 using System.Text.Json;
@@ -33,6 +34,10 @@ namespace MVCCoreProject.Controllers
 
             return View(product);
         }
+
+
+
+      
 
         private void AddReviewProduct(int productId)
         {

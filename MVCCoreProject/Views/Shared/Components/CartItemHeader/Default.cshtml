@@ -1,0 +1,8 @@
+﻿@model List<CartItem>
+
+
+<ul>
+	<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+	<li><a asp-action="Index" asp-controller="Cart"><i class="fa fa-shopping-bag"></i> <span class="cartAdet"> @Model.Sum(c=> c.Adet) </span></a></li>
+</ul>
+<div class="header__cart__price">item: <span class="cartFiyat">$ @Model.Sum(c=> c.Fiyat) </span></div>

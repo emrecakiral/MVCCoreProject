@@ -40,9 +40,9 @@
 		<div class="humberger__menu__cart">
 			<ul>
 				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+				<li><a href="#"><i class="fa fa-shopping-bag"></i> <span class="cartAdet">0</span></a></li>
 			</ul>
-			<div class="header__cart__price">item: <span>$150.00</span></div>
+			<div class="header__cart__price">item: <span class="cartFiyat">$0.00</span></div>
 		</div>
 		<div class="humberger__menu__widget">
 			<div class="header__top__right__language">
@@ -156,11 +156,7 @@
 				</div>
 				<div class="col-lg-3">
 					<div class="header__cart">
-						<ul>
-							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-						</ul>
-						<div class="header__cart__price">item: <span>$150.00</span></div>
+						@await Component.InvokeAsync("CartItemHeader")
 					</div>
 				</div>
 			</div>
@@ -316,6 +312,11 @@
 	<script src="~/js/owl.carousel.min.js"></script>
 	<script src="~/js/main.js"></script>
 
+
+	@if (IsSectionDefined("sepetScript"))
+	{
+		@RenderSection("sepetScript")
+	}
 
 	<script>
 

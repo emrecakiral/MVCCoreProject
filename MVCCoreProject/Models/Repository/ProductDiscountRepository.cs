@@ -23,7 +23,7 @@ namespace MVCCoreProject.Models.Repository
 
         public ProductDiscount Get(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.ProductDiscount.FirstOrDefault(c => c.ProductId == id);
         }
 
         public List<ProductDiscount> GetAll()
