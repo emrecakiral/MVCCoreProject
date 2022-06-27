@@ -16,7 +16,8 @@ namespace MVCCoreProject.Models.EntitiesConfiguration
             builder.Property(c => c.Name).HasColumnName("CategoryName");
             builder.Property(c=> c.Description).HasColumnType("nvarchar").HasMaxLength(15);
 
-            builder.ToTable("Categories");
+            // c.ExcludeFromMigrations()=> migration'a dahil etme..
+            builder.ToTable("Categories",c=> c.ExcludeFromMigrations());
         }
     }
 }

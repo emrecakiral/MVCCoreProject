@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.EntitiesConfiguration;
 
 namespace MVCCoreProject.Models.Entities
 {
-    public class NorthwindDbContext : DbContext
+    public class NorthwindDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
         public NorthwindDbContext(DbContextOptions<NorthwindDbContext> options) : base(options)
         {
@@ -18,6 +20,9 @@ namespace MVCCoreProject.Models.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
@@ -27,7 +32,7 @@ namespace MVCCoreProject.Models.Entities
         //   public DbSet<Customer> Customer { get; set; }
 
         public DbSet<ProductsViewModel>? ProductsViewModel { get; set; }
-     //   public DbSet<Customer> Customer { get; set; }
+        //   public DbSet<Customer> Customer { get; set; }
 
     }
 

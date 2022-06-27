@@ -13,7 +13,7 @@ namespace MVCCoreProject.Models.EntitiesConfiguration
             builder.Property(c => c.Id).HasColumnName("RegionId");
             builder.Property(c => c.Description).HasColumnName("RegionDescription").HasColumnType("nvarchar").HasMaxLength(50);
 
-            builder.ToTable("Region");
+            builder.ToTable("Region",c=> c.ExcludeFromMigrations());
         }
     }
 }

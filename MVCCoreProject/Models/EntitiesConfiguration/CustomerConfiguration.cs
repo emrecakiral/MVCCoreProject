@@ -8,7 +8,7 @@ namespace MVCCoreProject.Models.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.ToTable("Customers");
+            builder.ToTable("Customers",c=> c.ExcludeFromMigrations());
             builder.HasKey(c => c.id);
             builder.Property(c => c.id).HasColumnName("CustomerID");
             builder.Property(c => c.Title).HasColumnName("ContactTitle");

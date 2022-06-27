@@ -9,7 +9,7 @@ namespace MVCCoreProject.Models.EntitiesConfiguration
         public void Configure(EntityTypeBuilder<Products> builder)
         {
             builder.HasKey(c => c.ProductID);
-            builder.ToTable("Products");
+            builder.ToTable("Products", c => c.ExcludeFromMigrations());
         }
     }
 }
