@@ -58,6 +58,8 @@
 				<a href="#"><i class="fa fa-user"></i> Login</a>
 			</div>
 		</div>
+
+
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
 				<li class="active"><a asp-action="Index" asp-controller="Home">Home</a></li>
@@ -121,7 +123,37 @@
 								</ul>
 							</div>
 							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Login</a>
+
+
+
+
+								@if (!User.Identity.IsAuthenticated)
+								{
+									@*<a asp-action="Login" asp-controller="Account"><i class="fa fa-user"></i> Login</a>*@
+									<div class="header__top__right__language">
+										<div><span><i class="fa fa-user"></i> Üyelik İşlemleri</span> </div>
+										<span class="arrow_carrot-down"></span>
+										<ul>
+											<li><a asp-action="SigIn" asp-controller="Account">Oturum Aç</a></li>
+											<li><a asp-action="Register" asp-controller="Account"> Kayıt Ol</a></li>
+										</ul>
+									</div>
+								}
+								else
+								{
+									<div class="header__top__right__language">
+										<div><span><i class="fa fa-user"></i> Hoş Geldin @User.Identity.Name</span> </div>
+										<span class="arrow_carrot-down"></span>
+										<ul>
+											@if (User.IsInRole("admin"))
+											{
+												<li><a asp-action="Index" asp-controller="Home" asp-area="Manage">Yönetim Paneline Git</a></li>
+											}
+											<li><a asp-action="Profile" asp-controller="Account"> Profil</a></li>
+											<li><a asp-action="LogOut" asp-controller="Account"> Logout</a></li>
+										</ul>
+									</div>
+								}
 							</div>
 						</div>
 					</div>
@@ -319,7 +351,8 @@
 	}
 
 
-	@if(IsSectionDefined("Scripts")){
+	@if (IsSectionDefined("Scripts"))
+	{
 
 		@RenderSection("Scripts")
 
@@ -332,7 +365,7 @@
 			$("#txtSearch").keyup(function() {
 
 				var searchVal = $(this).val();
-				
+
 
 				$.ajax({
 					type: "GET",

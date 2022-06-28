@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.Entities;
+using MVCCoreProject.Models.ViewModels;
 
 namespace MVCCoreProject.Models.MappingProfile
 {
@@ -12,6 +13,9 @@ namespace MVCCoreProject.Models.MappingProfile
             CreateMap<Products, ProductsViewModel>();
             CreateMap<Region, RegionViewModel>();
             CreateMap<Customer, CustomerViewModel>();
+            CreateMap<UserAddres, UserAdressVM>();
+            CreateMap<UserAdressVM, UserAddres>();
+
         }
     }
 }

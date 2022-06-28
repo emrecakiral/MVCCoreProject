@@ -18,6 +18,7 @@ namespace MVCCoreProject.Models.Entities
         public DbSet<Customer> Customer { get; set; }
         public DbSet<ProductDiscount> ProductDiscount { get; set; }
 
+        public DbSet<UserAddres> UserAddres { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -28,6 +29,7 @@ namespace MVCCoreProject.Models.Entities
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
             modelBuilder.ApplyConfiguration(new RegionConfiguration());
             modelBuilder.ApplyConfiguration(new ProductDiscountConfiguraiton());
+            modelBuilder.ApplyConfiguration(new UserAddresConfiguraiton());
         }
         //   public DbSet<Customer> Customer { get; set; }
 

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MVCCoreProject.Models.ViewModels.UserAdressVM>
+
+@{
+	ViewData["Title"] = "Adreslerim";
+	ViewData["eee"] = "hero-normal";
+}
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="/img/breadcrumb.jpg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="breadcrumb__text">
+					<h2>Adreslerim</h2>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<section class="checkout spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					<a asp-action="AddAdres">Adres Ekle</a>
+				</p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>
+								@Html.DisplayNameFor(model => model.Baslik)
+							</th>
+							<th>
+								@Html.DisplayNameFor(model => model.AcikAdres)
+							</th>
+							<th>
+								@Html.DisplayNameFor(model => model.Il)
+							</th>
+							<th>
+								@Html.DisplayNameFor(model => model.Ilce)
+							</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>
+									@Html.DisplayFor(modelItem => item.Baslik)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.AcikAdres)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Il)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Ilce)
+								</td>
+								<td>
+									@Html.ActionLink("Edit", "EditAdres", new {  id=item.Id}) |
+									@Html.ActionLink("Delete", "DeleteAdres", new { id=item.Id})
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

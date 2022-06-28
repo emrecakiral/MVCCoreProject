@@ -4,6 +4,7 @@ using MVCCoreProject.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCCoreProject.Migrations
 {
     [DbContext(typeof(NorthwindDbContext))]
-    partial class NorthwindDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220628182644_UserAddress")]
+    partial class UserAddress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -431,9 +433,6 @@ namespace MVCCoreProject.Migrations
                     b.Property<string>("AcikAdres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Baslik")
                         .IsRequired()

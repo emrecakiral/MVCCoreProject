@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.Entities;
@@ -8,6 +9,7 @@ using MVCCoreProject.Models.Repository;
 namespace MVCCoreProject.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class CustomerManageController : Controller
     {
         CustomerRepository repository;

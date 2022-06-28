@@ -21,7 +21,7 @@ namespace MVCCoreProject.Models
             return new IdentityError
             {
                 Code = "2",
-                Description = $"{userName} kullanıcı adı başka bir kullanıcı tarafından alınmış. LÜtfen farklı bir değer giriniz"
+                Description = $"{userName} kullanıcı adı başka bir kullanıcı tarafından alınmış. Lütfen farklı bir değer giriniz"
             };
         }
 

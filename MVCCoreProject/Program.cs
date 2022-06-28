@@ -16,25 +16,33 @@ builder.Services.AddDbContext<NorthwindDbContext>(options =>
     options.UseSqlServer(@"Server=.\mssqlexpress;Database=Northwind;uid=sa;pwd=123");
 });
 
-builder.Services.AddIdentity<AppUser, AppRole>(c=> {
+builder.Services.AddIdentity<AppUser, AppRole>(c =>
+{
     c.Password.RequiredLength = 3; // min. 3 karakter
     c.Password.RequireLowercase = false; // küçük harf zorunluluðu yok
     c.Password.RequireUppercase = false; // büyük harft zorunluluðu yok
-    c.Password.RequireNonAlphanumeric=false; // þifrede özel karakter istemiyoruz. (! vb)
+    c.Password.RequireNonAlphanumeric = false; // þifrede özel karakter istemiyoruz. (! vb)
     c.User.RequireUniqueEmail = true; // Email adresini unique yapýyoruz...
 }) // servise identtiy instancei ekliyoruz..
     .AddEntityFrameworkStores<NorthwindDbContext>() // Manager sýnýflarýna veritabanýný gösteriyoruz..
     .AddErrorDescriber<UserRegisterError>(); // identity hatalarýný özelleþtiyoruz...
 
+// authentication cookie ayarý...
+builder.Services.ConfigureApplicationCookie(c =>
+{
+    c.ExpireTimeSpan = TimeSpan.FromMinutes(2);
+    c.Cookie.HttpOnly = true;
+    c.LoginPath = "/Account/SigIn";
+    c.AccessDeniedPath = "/Permission/Index";
+});
 
 builder.Services.AddTransient<CustomerRepository>();
 builder.Services.AddTransient<CategoryRepository>();
 builder.Services.AddTransient<ProductsRepository>();
 builder.Services.AddTransient<RegionRepository>();
 builder.Services.AddTransient<ProductDiscountRepository>();
-
+builder.Services.AddTransient<UserAddresRepository>();
 builder.Services.AddAutoMapper(typeof(Program)); // inject ediyoruz..
-
 
 var app = builder.Build();
 
@@ -47,7 +55,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication(); // oturum middleware
+
+app.UseAuthorization(); // yetkilendirme middleware
 
 
 app.UseEndpoints(endpoints =>

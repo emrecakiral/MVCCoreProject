@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MVCCoreProject.Areas.Manage.Models.ViewModels;
@@ -8,6 +9,7 @@ using MVCCoreProject.Models.Repository;
 namespace MVCCoreProject.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class CategoryManageController : Controller
     {
         //IRepository<Category> repository;

@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using MVCCoreProject.Areas.Manage.Models.ViewModels;
 using MVCCoreProject.Models.Entities;
 using MVCCoreProject.Models.Repository;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MVCCoreProject.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin")]
     public class ProductsManageController : Controller
     {
         ProductsRepository repository;
