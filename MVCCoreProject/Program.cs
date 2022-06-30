@@ -41,7 +41,11 @@ builder.Services.AddTransient<CategoryRepository>();
 builder.Services.AddTransient<ProductsRepository>();
 builder.Services.AddTransient<RegionRepository>();
 builder.Services.AddTransient<ProductDiscountRepository>();
+builder.Services.AddTransient<ShippersRepository>();
 builder.Services.AddTransient<UserAddresRepository>();
+
+
+builder.Services.AddSession();
 builder.Services.AddAutoMapper(typeof(Program)); // inject ediyoruz..
 
 var app = builder.Build();
@@ -52,6 +56,8 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseRouting();
 
